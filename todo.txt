@@ -1,0 +1,19 @@
+1) Get a glove
+
+2) Test code with bluetooth
+
+3) Get IR sensors and diods
+
+4) Test IR sensors and diods
+
+5) Get machine for testing
+
+6) Get signal from the remote
+
+7) Send signal to the machine
+
+8) Get signal from the mouse
+
+9) Send signal to the machine
+
+10) Make some button or something that turns off the IR diod 
