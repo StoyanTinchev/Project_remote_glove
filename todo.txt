@@ -1,8 +1,8 @@
-1) Get a glove
+1) Get a glove +
 
-2) Test code with bluetooth
+2) Test code with bluetooth - da, ama ne raboti (OSHTE)
 
-3) Get IR sensors and diods
+3) Get IR sensors and diods +
 
 4) Test IR sensors and diods
 

@@ -1,66 +1,62 @@
+#include <SoftwareSerial.h>
 #include <Wire.h>
 #include <I2Cdev.h>
 #include <MPU6050.h>
-#include <Mouse.h>
 
+SoftwareSerial hc06(8,9);
 #define button1 6
 #define button2 7
-
+int flag=0;
 
 MPU6050 mpu;
-int16_t ax, ay, az, gx, gy, gz;
+int16_t ax, ay, az;
+int16_t gx, gy, gz;
 int vx, vy;
-int flag = 0;
 
-void setup() {
+
+void setup()
+{
 
   Serial.begin(9600);
   Wire.begin();
-  pinMode(button1, INPUT);
-  pinMode(button2, INPUT);
+
   mpu.initialize();
-  if (!mpu.testConnection()) 
-  {
-    while (1);
-  }
 }
 
-void loop() 
+void loop()
 {
   mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-
   vx = (gx) / 300;
   vy = (gy) / 300;
 
-  Serial.print("gx = ");
-  Serial.print(gx);
-  Serial.print(" | gz = ");
-  Serial.print(gz);
+  /*Serial.print("gx = ");
+    Serial.print(gx);
+    Serial.print(" | gz = ");
+    Serial.print(gz);*/
 
   Serial.print("        | X = ");
-  Serial.print(vx);
+  Serial.print(vx + 10000);
   Serial.print(" | Y = ");
   Serial.println(vy);
 
-  Mouse.move(vx, vy);
-
   if (digitalRead(button1) == HIGH && flag == 0)
   {
-    Mouse.press(MOUSE_LEFT);
-    delay(200);
+    Serial.println(70000);
     flag = 1;
   }
   else if (digitalRead(button1) == LOW && flag)
   {
-    Mouse.release(MOUSE_LEFT);
+    Serial.println(80000);
     flag = 0;
   }
   else if (digitalRead(button2) == HIGH) 
   {
-    Mouse.press(MOUSE_RIGHT);
-    delay(100);
-    Mouse.release(MOUSE_RIGHT);
-    delay(200);
+    Serial.println(90000);
   }
-  delay(10);
+  
+//  if (analogRead(A0) >= 1000)
+//    Serial.println(80000);
+//
+//  if ( analogRead(A1) >= 1000)
+//    Serial.println(90000);
 }

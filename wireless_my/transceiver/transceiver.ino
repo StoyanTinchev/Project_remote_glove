@@ -1,7 +1,8 @@
+#include <SoftwareSerial.h>
 #include <Wire.h>
 #include <I2Cdev.h>
 #include <MPU6050.h>
-
+SoftwareSerial hc06(8,9);
 
 MPU6050 mpu;
 int16_t ax, ay, az;
@@ -9,7 +10,7 @@ int16_t gx, gy, gz;
 int vx, vy;
 
 
-void setup() 
+void setup()
 {
 
   Serial.begin(9600);
@@ -18,7 +19,7 @@ void setup()
   mpu.initialize();
 }
 
-void loop() 
+void loop()
 {
   mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
   vx = (gx) / 300;
@@ -30,13 +31,13 @@ void loop()
     Serial.print(gz);*/
 
   Serial.print("        | X = ");
-  Serial.print(vx+10000);
+  Serial.print(vx + 10000);
   Serial.print(" | Y = ");
   Serial.println(vy);
 
   if (analogRead(A0) >= 1000)
     Serial.println(80000);
-    
+
   if ( analogRead(A1) >= 1000)
     Serial.println(90000);
 }

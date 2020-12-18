@@ -2,7 +2,9 @@
 #include "Mouse.h"
 #include <SoftwareSerial.h>
 
-int x, y, flag = 0;
+
+
+int x, y;
 
 SoftwareSerial mySerial(9, 8); // rx, tx
 long serialA;
@@ -39,17 +41,14 @@ void loop() {
   Mouse.move(x, y);
 
 
-  if (serialA == 80000 && flag == 0)
+  if (serialA == 70000)
   {
     Mouse.press(MOUSE_LEFT);
     delay(200);
-    flag = 1;
   }
-  else if (serialA == 80000 && flag)
-  {
+  else if (serialA == 80000)
     Mouse.release(MOUSE_LEFT);
-    flag = 0;
-  }
+    
   else if (serialA == 90000)
   {
     Mouse.press(MOUSE_RIGHT);
