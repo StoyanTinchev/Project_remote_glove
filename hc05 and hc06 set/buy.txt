@@ -1,0 +1,10 @@
+Trqbva ni bazov set ot resistori - dano da imat.
+
+brad board.
+
+Onezi malkite kabelcheta deto sa dulgi kolkoto da sa na pinovete na brad boarda.
+
+2 arduino micro-ta
+
+1 hc05 bluetooth module
+

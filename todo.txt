@@ -19,9 +19,11 @@
 10) Make some button or something that turns off the IR diod 
 
 
+// how to connect hc05 and hc06
+https://www.youtube.com/watch?v=Y2uwyUNt9ZM
 
-
-
+// main code
+http://www.mrhobbytronics.com/arduino-accelerometer-mouse/
 
 https://www.electronicsforu.com/electronics-projects/wireless-programmable-3d-hid-mouse-and-keyboard
 
