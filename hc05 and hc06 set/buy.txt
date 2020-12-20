@@ -1,8 +1,8 @@
 Trqbva ni bazov set ot resistori - dano da imat.
 
-brad board.
+brеad board.
 
-Onezi malkite kabelcheta deto sa dulgi kolkoto da sa na pinovete na brad boarda.
+Onezi malkite kabelcheta deto sa dulgi kolkoto da sa na pinovete na brеad boarda.
 
 2 arduino micro-ta
 
