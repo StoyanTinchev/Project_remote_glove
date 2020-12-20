@@ -23,15 +23,15 @@ void loop() {
   }
 
 
-  if (20000 > serialA > 10000)
+  if (700 > serialA > 300)
   {
     Serial.println("xread");
     Serial.println(x);
-    x = serialA;
+    x = serialA-500;
   }
 
 
-  if (serialA < 10000)
+  if (serialA < 300)
   {
     Serial.println("yread");
     y = serialA;

@@ -33,7 +33,7 @@ void loop()
     Serial.print(gz);*/
 
   Serial.print("        | X = ");
-  Serial.print(vx + 10000);
+  Serial.print(vx + 500);
   Serial.print(" | Y = ");
   Serial.println(vy);
 
