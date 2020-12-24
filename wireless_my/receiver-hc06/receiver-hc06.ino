@@ -1,59 +1,51 @@
 #include "Mouse.h"
 #include <SoftwareSerial.h>
 
+SoftwareSerial mySerial(14, 15); // rx, tx
 
 
-int x, y;
-
-SoftwareSerial mySerial(9, 8); // rx, tx
+int x, y, counter=0;
 long serialA;
 void setup() 
 {
-  Serial.begin(9600);
-  mySerial.begin(9600);
+  Serial.begin(38400);
+  mySerial.begin(38400);
   Mouse.begin();
 }
 
 void loop() {
 
-  if (mySerial.available() > 2)
-  {
+  if (mySerial.available() > 0)
     serialA = mySerial.parseInt();
-    Serial.println(serialA);
-  }
 
 
-  if (700 > serialA > 300)
+  if (serialA<1200 && serialA > 800)
   {
     Serial.println("xread");
     Serial.println(x);
-    x = serialA-500;
+    x = serialA-1000;
+    counter=1;
   }
-
-
-  if (serialA < 300)
+  else if (serialA<700 && serialA > 300)
   {
     Serial.println("yread");
-    y = serialA;
     Serial.println(y);
+    y = serialA-500;
+    counter=2;
   }
   Mouse.move(x, y);
 
 
-  if (serialA == 70000)
-  {
+  if (serialA == 2000)
     Mouse.press(MOUSE_LEFT);
-    delay(200);
-  }
-  else if (serialA == 80000)
+    
+  if (serialA == 3000)
     Mouse.release(MOUSE_LEFT);
     
-  else if (serialA == 90000)
+  else if (serialA == 4000)
   {
     Mouse.press(MOUSE_RIGHT);
-    delay(100);
     Mouse.release(MOUSE_RIGHT);
-    delay(200);
   }
   delay(10);
 }
