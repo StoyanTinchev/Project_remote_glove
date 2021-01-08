@@ -19,14 +19,15 @@ void loop() {
   {
     if (mySerial.available() > 0)
       serialA = mySerial.parseInt();
+      
     if(serialA>1200)
       break;
+      
     if (serialA<1200 && serialA > 800)
     {
       Serial.println("xread");
       Serial.println(x);
       x = serialA-1000;
-      
     }
     else if (serialA<700 && serialA > 300)
     {
@@ -35,6 +36,7 @@ void loop() {
       y = serialA-500;
     }
     Mouse.move(x, y);
+    delay(7);
   }
 
   if (serialA == 2000)
