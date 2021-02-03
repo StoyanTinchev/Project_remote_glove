@@ -17,8 +17,8 @@ int vx, vy;
 
 void setup()
 {
-  bt.begin(115200);
-  Serial.begin(115200);
+  bt.begin(57600);
+  Serial.begin(57600);
   Wire.begin();
 
   mpu.initialize();
@@ -30,14 +30,14 @@ void loop()
   vx = (gx) / 300;
   vy = (gy) / 300;
 
-//  Serial.print("        | X = ");
+  Serial.print("        | X = ");
   bt.print("        | X = ");
   bt.print(vx + 1000);
-//  Serial.print(vx + 1000);
-//  Serial.print(" | Y = ");
+  Serial.print(vx + 1000);
+  Serial.print(" | Y = ");
   bt.print(" | Y = ");
   bt.print(vy + 500);
-//  Serial.println(vy + 500);
+  Serial.println(vy + 500);
 
   if (digitalRead(button1) == HIGH && flag_left == 0)
   {

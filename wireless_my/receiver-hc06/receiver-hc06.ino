@@ -8,8 +8,8 @@ int x, y;
 long serialA;
 void setup() 
 {
-  Serial.begin(115200);
-  mySerial.begin(115200);
+  Serial.begin(57600);
+  mySerial.begin(57600);
   Mouse.begin();
 }
 
@@ -35,10 +35,10 @@ void loop() {
       Serial.println(y);
       y = serialA-500;
     }
-    Mouse.move(x, y);
+//    Mouse.move(x, y);
     delay(7);
   }
-
+  Mouse.move(x, y);
   if (serialA == 2000)
   {
     Mouse.press(MOUSE_LEFT);
