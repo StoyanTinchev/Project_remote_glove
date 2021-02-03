@@ -17,8 +17,8 @@ int vx, vy;
 
 void setup()
 {
-  bt.begin(38400);
-  Serial.begin(38400);
+  bt.begin(115200);
+  Serial.begin(115200);
   Wire.begin();
 
   mpu.initialize();
