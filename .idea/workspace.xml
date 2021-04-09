@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95a72a45-2743-4f79-be67-cd6112331513" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.bg.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wireless_implementation/receiver-hc06/receiver-hc06.ino" beforeDir="false" afterPath="$PROJECT_DIR$/wireless_implementation/receiver-hc06/receiver-hc06.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/readme.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.bg.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.bg.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +48,7 @@
       <workItem from="1617885792567" duration="104000" />
       <workItem from="1617969308272" duration="1011000" />
       <workItem from="1617983641937" duration="47000" />
-      <workItem from="1617986927197" duration="459000" />
+      <workItem from="1617986927197" duration="781000" />
     </task>
     <servers />
   </component>
