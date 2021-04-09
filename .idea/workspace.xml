@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95a72a45-2743-4f79-be67-cd6112331513" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/readme.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.bg.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.bg.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/readme.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
