@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95a72a45-2743-4f79-be67-cd6112331513" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/img_1.png" beforeDir="false" />
     </list>
@@ -46,6 +45,7 @@
       <option name="presentableId" value="Default" />
       <updated>1617881054052</updated>
       <workItem from="1617881055217" duration="3488000" />
+      <workItem from="1617885792567" duration="104000" />
     </task>
     <servers />
   </component>
@@ -62,6 +62,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
