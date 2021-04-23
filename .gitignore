@@ -3,3 +3,14 @@
 ################################################################################
 
 /wireless_implementation/receiver-hc06/Debug
+/wireless_implementation/.vs
+/wireless_implementation/transceiver-hc05/Debug
+/wireless_implementation/transceiver-hc05/__vm
+/wireless_implementation/receiver-hc06/__vm
+/wireless_implementation/receiver-hc06/receiver-hc06.vcxproj
+/wireless_implementation/receiver-hc06/receiver-hc06.vcxproj.filters
+/wireless_implementation/receiver-hc06/receiver-hc06.vcxproj.user
+/wireless_implementation/transceiver-hc05/transceiver-hc05.vcxproj
+/wireless_implementation/transceiver-hc05/transceiver-hc05.vcxproj.filters
+/wireless_implementation/transceiver-hc05/transceiver-hc05.vcxproj.user
+/.vs
