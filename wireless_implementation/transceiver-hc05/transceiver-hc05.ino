@@ -5,7 +5,7 @@
 
 #define button1 6
 #define button2 7
-int flag_left=0;
+//int flag_left=0;
 int flag_right=0;
 
 SoftwareSerial bt(14, 15);
@@ -39,25 +39,20 @@ void loop()
   bt.print(vy + 500);
   Serial.println(vy + 500);
 
-  if (digitalRead(button1) == HIGH && flag_left == 0)
+  if (digitalRead(button1) == HIGH)
   {
     bt.print("LEFT");
     bt.print(2000);
-//    Serial.println(2000);
-    flag_left = 1;
   }
-  else if (digitalRead(button1) == LOW && flag_left == 1)
+  else if (digitalRead(button1) == LOW)
   {
     bt.print("LEFT");
     bt.print(3000);
-//    Serial.println(3000);
-    flag_left = 0;
   }
   if (digitalRead(button2) == HIGH && flag_right == 0) 
   {
     bt.print("RIGHT"); 
     bt.print(4000);
-//    Serial.println(4000);
     flag_right=1;
   }
   else if(digitalRead(button2) == LOW && flag_right == 1)
@@ -65,4 +60,5 @@ void loop()
     bt.print("release");
     flag_right=0;
   }
+  delay(7);
 }

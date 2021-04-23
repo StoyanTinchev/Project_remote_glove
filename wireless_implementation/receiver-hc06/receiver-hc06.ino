@@ -35,8 +35,6 @@ void loop() {
       Serial.println(y);
       y = serialA-500;
     }
-//    Mouse.move(x, y);
-    delay(7);
   }
   Mouse.move(x, y);
   if (serialA == 2000)
