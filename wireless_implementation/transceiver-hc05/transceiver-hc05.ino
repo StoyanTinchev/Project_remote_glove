@@ -5,10 +5,12 @@
 #include <IRremote.h>
 
 
-#define button1 6
-#define button2 7
-//int flag_left=0;
-int flag_right=0;
+#define leftBTN 6
+#define rightBTN 7
+#define switchAct 10
+
+bool flag_right = false;
+bool switch_activity = false; 
 
 SoftwareSerial bt(14, 15);
 MPU6050 mpu;
@@ -18,7 +20,7 @@ int16_t ax, ay, az;
 int16_t gx, gy, gz;
 int vx, vy;
 
-//values for Dani's Remote
+//values for Panasonic's Remote
 /*
 unsigned long up_val = 33738799;
 unsigned long down_val = 33714219;
@@ -26,7 +28,7 @@ unsigned long right_val = 33720439;
 unsigned long left_val = 33687799;
 */
 
-//values for Vasko's Remote
+//values for A1's Remote
 unsigned long up_val = 16764975;
 unsigned long down_val = 16754775;
 unsigned long right_val = 16724175;
@@ -43,60 +45,75 @@ void setup()
 
 void loop()
 {
-  mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-  vx = (gx) / 300;
-  vy = (gy) / 300;
+  if (digitalRead(switchAct) == HIGH)
+  {
+    if (switch_activity)
+      switch_activity = false;
+    else
+      switch_activity = true;
+  }
 
-  Serial.print("        | X = ");
-  bt.print("        | X = ");
-  bt.print(vx + 1000);
-  Serial.print(vx + 1000);
-  Serial.print(" | Y = ");
-  bt.print(" | Y = ");
-  bt.print(vy + 500);
-  Serial.println(vy + 500);
-
-  if(vx > 100)
+  switch(switch_activity)
   {
-    Serial.println("Next program");
-    irsend.sendNEC(up_val, 32);
+    case true:
+      if(vx > 100)
+      {
+        Serial.println("Next program");
+        irsend.sendNEC(up_val, 32);
+      }
+      else if(vx < -100)
+      {
+        Serial.println("Previous program");
+        irsend.sendNEC(down_val, 32);
+      }
+      if(vy > 100)
+      {
+        Serial.println("Up volume");
+        irsend.sendNEC(left_val, 32);
+      }
+      else if(vy < -100)
+      {
+        Serial.println("Down volume");
+        irsend.sendNEC(right_val, 32);
+      }
+      break;
+      
+    case false:
+      mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+      vx = (gx) / 300;
+      vy = (gy) / 300;
+    
+      Serial.print("        | X = ");
+      bt.print("        | X = ");
+      bt.print(vx + 1000);
+      Serial.print(vx + 1000);
+      Serial.print(" | Y = ");
+      bt.print(" | Y = ");
+      bt.print(vy + 500);
+      Serial.println(vy + 500);
+      
+      if (digitalRead(leftBTN) == HIGH)
+      {
+        bt.print("LEFT");
+        bt.print(2000);
+      }
+      else
+      {
+        bt.print("LEFT");
+        bt.print(3000);
+      }
+      if (digitalRead(rightBTN) == HIGH && flag_right == 0) 
+      {
+        bt.print("RIGHT"); 
+        bt.print(4000);
+        flag_right = true;
+      }
+      else if(digitalRead(rightBTN) == LOW && flag_right == 1)
+      {
+        bt.print("release");
+        flag_right = false;
+      }
+      delay(7);
+      break;
   }
-  else if(vx < -100)
-  {
-    Serial.println("Previous program");
-    irsend.sendNEC(down_val, 32);
-  }
-  if(vy > 100)
-  {
-    Serial.println("Up volume");
-    irsend.sendNEC(left_val, 32);
-  }
-  else if(vy < -100)
-  {
-    Serial.println("Down volume");
-    irsend.sendNEC(right_val, 32);
-  }
-  
-  if (digitalRead(button1) == HIGH)
-  {
-    bt.print("LEFT");
-    bt.print(2000);
-  }
-  else
-  {
-    bt.print("LEFT");
-    bt.print(3000);
-  }
-  if (digitalRead(button2) == HIGH && flag_right == 0) 
-  {
-    bt.print("RIGHT"); 
-    bt.print(4000);
-    flag_right=1;
-  }
-  else if(digitalRead(button2) == LOW && flag_right == 1)
-  {
-    bt.print("release");
-    flag_right=0;
-  }
-  delay(7);
 }
