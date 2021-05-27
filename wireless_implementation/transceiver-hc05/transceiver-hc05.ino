@@ -11,6 +11,7 @@
 
 bool flag_right = false;
 bool switch_activity = false; 
+bool switchBTN = false;
 
 SoftwareSerial bt(14, 15);
 MPU6050 mpu;
@@ -45,13 +46,17 @@ void setup()
 
 void loop()
 {
-  if (digitalRead(switchAct) == HIGH)
+  if (digitalRead(switchAct) == HIGH && switchBTN)
   {
     if (switch_activity)
       switch_activity = false;
     else
       switch_activity = true;
+
+    switchBTN = false;
   }
+  else
+    switchBTN = true;
 
   switch(switch_activity)
   {
