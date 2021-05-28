@@ -55,7 +55,7 @@ void loop()
 
     switchBTN = false;
   }
-  else
+  else if(digitalRead(switchAct) == LOW)
     switchBTN = true;
 
   switch(switch_activity)
